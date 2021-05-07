@@ -52,6 +52,7 @@ jobs:
     parallelism: 2
     environment:
       RAILS_ENV: test
+      DATABASE_URL: postgresql://postgres@localhost/spree_test
     working_directory: ~/app
     steps:
       - checkout
