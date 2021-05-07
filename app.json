@@ -31,7 +31,6 @@
     "heroku-postgresql",
     "rediscloud",
     "sendgrid",
-    "sentry",
     "scout"
   ],
   "buildpacks": [
