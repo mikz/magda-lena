@@ -34,8 +34,12 @@
 @import "spree/frontend/views/spree/user_passwords/user_passwords";
 @import "spree/frontend/views/spree/user_sessions/new";
 @import "spree/frontend/views/spree/products/index";
+
 @import "spree/frontend/components-custom/headers";
-@import "spree/frontend/components-custom/inputs";
+
+// SEGFAULT
+//@import "spree/frontend/components-custom/inputs";
+
 @import "spree/frontend/views/spree/checkout/registration";
 @import "spree/frontend/views/spree/checkout/delivery";
 @import "spree/frontend/views/spree/checkout/confirm";
@@ -44,7 +48,10 @@
 @import "spree/frontend/views/spree/orders/show";
 @import "spree/frontend/views/spree/taxons/show";
 @import "spree/frontend/views/spree/users/show";
-@import "spree/frontend/views/spree/checkout/edit";
+
+// stack too deep
+//@import "spree/frontend/views/spree/checkout/edit";
+
 @import "spree/frontend/views/spree/shared/product";
 @import "spree/frontend/views/spree/products/show";
 @import "spree/frontend/views/spree/products/cart_form";
