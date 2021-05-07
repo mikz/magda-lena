@@ -52,6 +52,7 @@ group :test do
   gem 'vcr'
   gem 'rspec_junit_formatter'
   gem 'codeclimate-test-reporter', require: nil
+  gem 'spree_dev_tools', require: false, group: %w[test development]
 end
 
 # Heroku fix
@@ -80,7 +81,6 @@ gem 'spree', '~> 4.2'
 gem 'spree_gateway', '~> 3.9'
 gem 'spree_auth_devise', '~> 4.3'
 gem 'spree_i18n', '~> 5.0'
-# gem 'spree_dev_tools', require: false, group: %w[test development]
 
 # Sentry Client
 gem 'sentry-raven'
