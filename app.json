@@ -30,8 +30,7 @@
     "papertrail",
     "heroku-postgresql",
     "rediscloud",
-    "sendgrid",
-    "scout"
+    "sendgrid"
   ],
   "buildpacks": [
     {
