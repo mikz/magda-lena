@@ -16,3 +16,11 @@ Spree.config do |config|
 end
 
 Spree.user_class = 'Spree::User'
+
+Spree::Backend::Config.configure do |config|
+  config.locale = :en
+end
+
+Spree::Frontend::Config.configure do |config|
+  config.locale = Rails.application.config.i18n.default_locale
+end
