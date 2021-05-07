@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.7.3'
+ruby '~> 2.7.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.3'
@@ -29,12 +29,7 @@ gem 'awesome_print'
 group :development, :test do
   gem 'dotenv-rails', '~> 2.1', '>= 2.1.1'
 
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
-
   gem 'listen'
-
-  gem 'rspec_junit_formatter'
 
   # monitoring
   gem 'bullet'
@@ -55,7 +50,9 @@ end
 
 group :test do
   gem 'vcr'
+  gem 'rspec_junit_formatter'
   gem 'codeclimate-test-reporter', require: nil
+  gem 'spree_dev_tools', require: false, group: %w[test development]
 end
 
 # Heroku fix
@@ -84,7 +81,6 @@ gem 'spree', '~> 4.2'
 gem 'spree_gateway', '~> 3.9'
 gem 'spree_auth_devise', '~> 4.3'
 gem 'spree_i18n', '~> 5.0'
-gem 'spree_dev_tools', require: false, group: %w[test development]
 
 # Sentry Client
 gem 'sentry-raven'
