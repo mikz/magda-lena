@@ -1,89 +1,46 @@
-version: 2
+version: 2.1
+orbs:
+  ruby: circleci/ruby@1.1
+  node: circleci/node@4.3
+
 jobs:
   install_ruby_dependencies:
     docker:
-      - image: circleci/ruby:2.7.3-node-browsers
-    working_directory: ~/app
+      - image: cimg/ruby:3.0.0
     environment:
       BUNDLE_JOBS: 4
       BUNDLE_RETRY: 3
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - ruby-dependencies-v2-{{ checksum "Gemfile.lock" }}
-            - ruby-dependencies-v2
-      - run:
-          name: Set bundle path
-          command: bundle config --local path vendor/bundle
-      - run:
-          name: Bundle Install
-          command: |
-            bundle check || bundle install --deployment
-      - save_cache:
-          paths:
-            - vendor/bundle
-          key: ruby-dependencies-v2-{{ checksum "Gemfile.lock" }}
+      - run: sudo sh -c 'apt update; apt install -y libsqlite3-dev'
+      - ruby/install-deps
   install_javascript_dependencies:
     docker:
-      - image: circleci/ruby:2.7.3-node-browsers
-    working_directory: ~/app
+      - image: cimg/ruby:3.0.0-node
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - javascript-dependencies-v2-{{ checksum "yarn.lock" }}
-            - javascript-dependencies-v2
-      - run:
-          name: Which yarn?
-          command: yarn -v
-      - run:
-          name: Install Yarn
-          command: yarn install
-      - save_cache:
-          paths:
-            - node_modules
-          key: javascript-dependencies-v2-{{ checksum "yarn.lock" }}
-
+      - node/install-packages:
+          pkg-manager: yarn
   run_tests:
     docker:
-      - image: circleci/ruby:2.7.3-node-browsers
-      - image: postgres:11.0-alpine
+      - image: cimg/ruby:3.0.0-browsers
+      - image: circleci/postgres:11.0-alpine
     parallelism: 2
     environment:
       RAILS_ENV: test
       DATABASE_URL: postgresql://postgres@localhost/spree_test
-    working_directory: ~/app
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - ruby-dependencies-v2-{{ checksum "Gemfile.lock" }}
-            - ruby-dependencies-v2
-      - restore_cache:
-          keys:
-            - javascript-dependencies-v2-{{ checksum "yarn.lock" }}
-            - javascript-dependencies-v2
-      - run:
-          name: Set bundle path
-          command: bundle config --local path vendor/bundle
+      - ruby/install-deps
+      - node/install-packages:
+          pkg-manager: yarn
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432
       - run:
           name: Setup DB
           command: bundle exec rails db:create db:schema:load
-      - run:
-          name: Run Rspec
-          command: |
-            TESTFILES=$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
-            bundle exec rspec --format documentation \
-                              --format RspecJunitFormatter \
-                              -o ~/rspec/rspec.xml \
-                              -- ${TESTFILES}
-      - store_test_results:
-          path: ~/rspec
-
+      - ruby/rspec-test
       - store_artifacts:
           path: tmp/capybara
 
