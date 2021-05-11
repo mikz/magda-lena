@@ -40,6 +40,9 @@ jobs:
       - run:
           name: Setup DB
           command: bundle exec rails db:create db:schema:load
+      - run:
+          name: Setup DB
+          command: bundle exec rails assets:precompile
       - ruby/rspec-test
       - store_artifacts:
           path: tmp/capybara
