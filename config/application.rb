@@ -47,8 +47,5 @@ module SpreeStarter
       require "#{Rails.root}/lib/cloud_flare_middleware"
       config.middleware.insert_before(0, Rack::CloudFlareMiddleware)
     end
-
-    # flipper memoizing
-    config.middleware.use Flipper::Middleware::Memoizer
   end
 end
