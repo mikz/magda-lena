@@ -1,70 +1,43 @@
 default:
   navigation:
-    - title: Women
-      subtitle: Categories
-      url: /t/women
+    - title: Dřevo
+      subtitle:
+      url: /t/drevo
       items:
-        - :title: Skirts
-          :url: /t/women/skirts
-        - :title: Dresses
-          :url: /t/women/dresses
-        - :title: Shirts and Blouses
-          :url: /t/women/shirts-and-blouses
-        - :title: Sweaters
-          :url: /t/women/sweaters
-        - :title: Tops and T-shirts
-          :url: /t/women/tops-and-t-shirts
-        - :title: Jackets and Coats
-          :url: /t/women/jackets-and-coats
+        - :title: Dekorace do pokoje
+          :url: /t/kategorie/drevo/dekorace-do-pokoje
       promo_banners:
-        - subtitle: New collection
-          title: Summer 2021
-          url: /t/new-collection/summer-2021
+        - subtitle:
+          title: Hrazdička
+          url: /products/hrazdicka
           image: 'meganav/promo_banner_left-first-category.jpg'
-        - subtitle: Special Offers
-          title: Get up to 30% off
-          url: /t/special-offers/30-percent-off
-          image: 'meganav/promo_banner_right-first-category.jpg'
-    - title: Men
-      subtitle: Categories
-      url: /t/men
+    - title: Látka
+      subtitle:
+      url: /t/latka
       items:
-        - :title: Shirts
-          :url: /t/men/shirts
-        - :title: T-shirts
-          :url: /t/men/t-shirts
-        - :title: Sweaters
-          :url: /t/men/sweaters
-        - :title: Jackets and Coats
-          :url: /t/men/jackets-and-coats
+        - :title: Chrastítka
+          :url: /t/kategorie/latka/chrastitka
+        - :title: Doplňky na hrazdičku
+          :url: /t/kategorie/latka/doplnky-na-hrazdicku
+        - :title: Dekorace do pokoje
+          :url: /t/kategorie/latka/dekorace-do-pokoje
       promo_banners:
-        - subtitle: New collection
-          title: Summer 2021
-          url: /t/new-collection/summer-2021
+        - subtitle:
+          title: Dekorace
+          url: /t/kategorie/latka/dekorace-do-pokoje
           image: 'meganav/promo_banner_left-second-category.jpg'
-        - subtitle: Special Offers
-          title: Get up to 30% off
-          url: /t/special-offers/30-percent-off
-          image: 'meganav/promo_banner_right-second-category.jpg'
-    - title: Sportswear
-      subtitle: Categories
-      url: /t/sportswear
+    - title: Papír
+      subtitle:
+      url: /t/papir
       items:
-        - :title: Tops
-          :url: /t/sportswear/tops
-        - :title: Sweatshirts
-          :url: /t/sportswear/sweatshirts
-        - :title: Pants
-          :url: /t/sportswear/pants
+        - :title: Pohádkové kartičky
+          :url: /t/kategorie/papir/pohadkove-karticky
       promo_banners:
-        - subtitle: New collection
-          title: Summer 2021
-          url: /t/new-collection/summer-2021
+        - subtitle: Pro rodiče
+          title: Pohádkové karty
+          url: /t/kategorie/papir/pohadkove-karticky
           image: 'meganav/promo_banner_left-third-category.jpg'
-        - subtitle: Special Offers
-          title: Get up to 30% off
-          url: /t/special-offers/30-percent-off
-          image: 'meganav/promo_banner_right-third-category.jpg'
+
 fr:
   navigation:
     - title: Femmes
