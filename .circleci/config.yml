@@ -25,6 +25,7 @@ jobs:
     docker:
       - image: cimg/ruby:3.0.0-browsers
       - image: circleci/postgres:11.0-alpine
+      - image: circleci/redis
     parallelism: 2
     environment:
       RAILS_ENV: test
